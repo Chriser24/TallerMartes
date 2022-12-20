@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jugardores', function (Blueprint $table) {
+        Schema::create('jugadores', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('apellidos');
             $table->string('edad');
             $table->float('calificación');
             $table->string('nacionalidad');
+            $table->foreignId('equipo_id')->constrained('equipos')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jugardores');
+        Schema::dropIfExists('jugadores');
     }
 };

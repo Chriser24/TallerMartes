@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('date-creation');
             $table->float('promedio');
             $table->foreignId('sport_id')->constrained('sports')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('jugador_id')->constrained('jugardores')->onDelete('cascade')->onUpdate('cascade');
+            
             $table->timestamps();
         });
     }
